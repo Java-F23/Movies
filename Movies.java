@@ -1,19 +1,22 @@
 import java.util.ArrayList;
 
-public class MovieDatabase {
+public class Movies {
     public static class Movie {
         private String title;
         private int year;
         private String genre;
         private ArrayList<String> cast;
         public String plot;
+        public ArrayList<String> timings;
+        public ArrayList<String> screenings;
 
-        public Movie(String title, int year, String genre, ArrayList<String> cast, String plot) {
+        public Movie(String title, int year, String genre, ArrayList<String> cast, String plot, ArrayList<String> timings, ArrayList<String> screenings) {
             this.title = title;
             this.year = year;
             this.genre = genre;
             this.cast = cast;
             this.plot = plot;
+            this.screenings = screenings;
         }
 
         public String getTitle() {
@@ -58,6 +61,7 @@ public class MovieDatabase {
         public void setPlot(String plot) {
             this.plot = plot;
         }
+        
 }
 
 }
