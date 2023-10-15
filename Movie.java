@@ -1,22 +1,24 @@
 import java.util.ArrayList;
 
-public class Movies {
-    public static class Movie {
+public class Movie{
         private String title;
         private int year;
         private String genre;
         private ArrayList<String> cast;
         public String plot;
+        public String crew;
         public ArrayList<String> timings;
-        public ArrayList<String> screenings;
+        public screen screenings;
 
-        public Movie(String title, int year, String genre, ArrayList<String> cast, String plot, ArrayList<String> timings, ArrayList<String> screenings) {
+        public Movie(String title, int year, String genre, ArrayList<String> cast, String plot, ArrayList<String> timings, screen screenings, String crew) {
             this.title = title;
             this.year = year;
             this.genre = genre;
             this.cast = cast;
             this.plot = plot;
             this.screenings = screenings;
+            this.timings = timings;
+            this.crew = crew;
         }
 
         public String getTitle() {
@@ -61,7 +63,32 @@ public class Movies {
         public void setPlot(String plot) {
             this.plot = plot;
         }
+        public void setTimings(ArrayList <String> timings){
+            this.timings = timings;
+        }
+        public void setScreenings(screen screenings){
+            this.screenings = screenings;
+        }
+        public ArrayList<String> getTimings(){
+            return timings;
+        }
+        public String getScreenName(){
+            return screenings.getScreenName();
+        }
+        public int getScreenCapacity(){
+            return screenings.getCapacity();
+        }
+        public void setScreenCapacity(int capacity){
+            screenings.setScreenCapacity(capacity);
+        }
+        public void removeCastMember(int castMember) {
+            cast.remove(castMember);
+        }
+        public String getcrew(){
+            return crew;
+        }
+        public void setcrew(String crew){
+            this.crew = crew;
+        }
         
-}
-
 }
