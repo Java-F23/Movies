@@ -1,3 +1,4 @@
+import java.math.BigDecimal;
 import java.util.ArrayList;
 
 public class Movie{
@@ -8,9 +9,10 @@ public class Movie{
         public String plot;
         public String crew;
         public ArrayList<String> timings;
-        public screen screenings;
-
-        public Movie(String title, int year, String genre, ArrayList<String> cast, String plot, ArrayList<String> timings, screen screenings, String crew) {
+        public ArrayList<Screen> screenings;
+        public ArrayList<String> reviews = new ArrayList<>();
+        public ArrayList<Integer> ratings = new ArrayList<>();
+        public Movie(String title, int year, String genre, ArrayList<String> cast, String plot, ArrayList<String> timings, ArrayList<Screen> screenings, String crew) {
             this.title = title;
             this.year = year;
             this.genre = genre;
@@ -20,8 +22,18 @@ public class Movie{
             this.timings = timings;
             this.crew = crew;
         }
+        // public ArrayList<String> getScreens() {
+        //     ArrayList<String> namescreens = new ArrayList<>();
+        //     for (Screen screen : screenings) {
+        //         namescreens.add(screen.getName());
+        //     }
+        //     return namescreens;
+        // }
 
         public String getTitle() {
+            return title;
+        }
+        public String movTitle(String selectedmovie){
             return title;
         }
 
@@ -36,6 +48,7 @@ public class Movie{
         public ArrayList<String> getCast() {
             return cast;
         }
+
         public int getsizeofcast(){
             return cast.size();
         }
@@ -66,20 +79,11 @@ public class Movie{
         public void setTimings(ArrayList <String> timings){
             this.timings = timings;
         }
-        public void setScreenings(screen screenings){
+        public void setScreenings(ArrayList<Screen> screenings){
             this.screenings = screenings;
         }
         public ArrayList<String> getTimings(){
             return timings;
-        }
-        public String getScreenName(){
-            return screenings.getScreenName();
-        }
-        public int getScreenCapacity(){
-            return screenings.getCapacity();
-        }
-        public void setScreenCapacity(int capacity){
-            screenings.setScreenCapacity(capacity);
         }
         public void removeCastMember(int castMember) {
             cast.remove(castMember);
@@ -89,6 +93,40 @@ public class Movie{
         }
         public void setcrew(String crew){
             this.crew = crew;
+        }
+
+        public ArrayList<String> getreviews(){
+            return reviews;
+        }
+        public ArrayList<Integer> getratings(){
+            return ratings;
+        }
+        public double averageratings(){
+            int sum = 0;
+            for (Integer num : ratings) {
+                sum += num;
+            }
+            return (double) sum/ratings.size();
+        }
+        public void addReview(String review) {
+            reviews.add(review);
+        }
+    
+        public void addRating(int rating) {
+            ratings.add(rating);
+        }
+        public static Movie getMovieByTitle(String selectedTitle) {
+            return null;
+        }
+        public ArrayList<Screen> getScreens() {
+            return screenings;
+        }
+        public ArrayList<String> getScreenNames(){
+            ArrayList<String> ScreenNames = new ArrayList<>();
+            for(Screen screen: screenings){
+                ScreenNames.add(screen.getName());
+            }
+            return ScreenNames;
         }
         
 }
